@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "nodemon osmosis_hlj_back.js",
-    "start": "forever start -a -l forever.log -o out.log -e err.log ./osmosis_hlj_back.js",
+    "start": "forever start -a -l forever.log -e err.log ./osmosis_hlj_back.js",
     "stop": "forever stop ./osmosis_hlj_back.js"
   }
 }
