@@ -1,9 +1,9 @@
 // get routes
-const productRoutes = require('./productRoutes');
+const productRoute = require('./productRoute');
 
 // module exports func
 module.exports = function(app, db) {
   // call the routes
-  productRoutes(app, db);
+  productRoute(app, db);
   // Other route groups could go here, in the future
 };
