@@ -3,7 +3,15 @@ var ObjectID = require('mongodb').ObjectID;
 module.exports = function(app, db) {
 
   app.get('/product/list', (req, res) => {
+		var skip = req.query.skip;
     var limit = req.query.limit;
+
+		if(skip) {
+      skip = parseInt(skip);
+    }
+    else {
+      skip = 0;
+    }
 
     if(limit) {
 			limit = parseInt(limit);
@@ -15,6 +23,7 @@ module.exports = function(app, db) {
     var myRes = db
       .collection('products')
       .find()
+			.skip(skip)
       .limit(limit)
 			.sort({ title: 1 })
       .toArray((err, cursor) => {
