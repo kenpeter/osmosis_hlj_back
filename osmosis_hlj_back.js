@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const db = require('./config/db');
+const config = require('./config.js');
 
 // port
 const port = 8008;
@@ -13,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //
 app.use(cors());
+
+app.use('/imgs', express.static(config.imgRootPath.publicPath));
 
 // mongo connect
 // with db url
